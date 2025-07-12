@@ -37,11 +37,11 @@ LinkTinker is a powerful URL shortener that helps you create short, shareable li
 
 ## Tech Stack
 
-- **Backend**: Laravel 10.x
+- **Backend**: Laravel 12.x
 - **Frontend**: Blade Templates, Tailwind CSS
 - **Database**: MySQL/PostgreSQL/SQLite
 - **JavaScript**: Vanilla JS for interactivity
-- **Deployment**: Compatible with any PHP 8.1+ server
+- **Deployment**: Compatible with any PHP 8.3+ server
 
 ## Installation
 
