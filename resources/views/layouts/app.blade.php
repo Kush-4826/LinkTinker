@@ -23,7 +23,8 @@
     </head>
     <body class="bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center min-h-screen flex-col">
         @include('layouts.partials._header')
-        <div class="flex items-center justify-center w-full min-h-[100%] transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
+        <div class="flex flex-col items-center justify-center w-full min-h-[100%] transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
+            <h1 class="font-syne font-bold text-center text-gray-500 text-xl py-3">{{$shortLinksCount}} Link{{ $shortLinksCount != 1 ? 's' : '' }} Shortened So Far...</h1>
             <main class="flex max-w-[335px] w-full flex-col-reverse lg:max-w-4xl lg:flex-row">
                 <div class="leading-[20px] flex-1 p-6 bg-[#161615] text-[#EDEDEC] shadow-[inset_0px_0px_0px_1px_#fffaed2d] rounded-lg">
                     @yield('main-content')
