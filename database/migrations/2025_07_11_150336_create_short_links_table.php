@@ -13,6 +13,12 @@ return new class extends Migration
     {
         Schema::create('short_links', function (Blueprint $table) {
             $table->id();
+            $table->string('slug');
+            $table->string('url');
+            $table->integer('clicks')->default(0);
+            $table->integer('max_clicks')->nullable();
+            $table->timestamp('expires_at')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }
