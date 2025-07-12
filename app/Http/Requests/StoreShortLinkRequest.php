@@ -11,7 +11,7 @@ class StoreShortLinkRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class StoreShortLinkRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "url" => "required|url",
+            "slug" => "nullable|string|unique:short_links,slug",
+            "expires_at" => "nullable|date",
+            "max_clicks" => "nullable|integer",
         ];
     }
 }
