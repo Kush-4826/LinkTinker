@@ -1,0 +1,1 @@
+<button type="{{ $type }}" class="font-syne bg-white rounded-md p-1 text-black cursor-pointer hover:bg-transparent hover:text-white border-white border hover:box-border transition-all duration-200 ease-in-out" id="{{ $id }}">{!! $buttonContent !!}</button>
