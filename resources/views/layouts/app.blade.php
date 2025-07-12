@@ -33,5 +33,7 @@
         </div>
 
         @include('layouts.partials._footer')
+
+        @stack("scripts")
     </body>
 </html>
