@@ -1,61 +1,167 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# LinkTinker
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+> A modern, feature-rich URL shortener built with Laravel that allows you to create short, memorable links with optional expiration dates and click limits.
 
-## About Laravel
+## Table of Contents
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+- [Overview](#overview)
+- [Features](#features)
+- [Screenshots](#screenshots)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Environment Variables](#environment-variables)
+- [Usage](#usage)
+- [Database Schema](#database-schema)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+LinkTinker is a powerful URL shortener that helps you create short, shareable links. It's built with Laravel and comes with features like custom slugs, link expiration, and click tracking. Whether you're sharing links on social media, in emails, or anywhere else, LinkTinker makes your links more manageable and trackable.
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+- **URL Shortening**: Convert long URLs into short, shareable links
+- **Custom Slugs**: Option to set custom short URLs (e.g., yourdomain.com/myslug)
+- **Link Expiration**: Set expiration dates for your shortened links
+- **Click Limits**: Restrict the number of times a link can be accessed
+- **Click Tracking**: Monitor how many times each link has been clicked
+- **Responsive Design**: Works on desktop and mobile devices
+- **Copy to Clipboard**: One-click copy of shortened URLs
+- **Automatic Cleanup**: Expired and maxed-out links are automatically deactivated
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Screenshots
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+![LinkTinker Interface](./screenshots/home.png)
+![LinkTinker Interface](./screenshots/home2.png)
+*The clean and intuitive interface for creating short links*
 
-## Laravel Sponsors
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## Tech Stack
 
-### Premium Partners
+- **Backend**: Laravel 10.x
+- **Frontend**: Blade Templates, Tailwind CSS
+- **Database**: MySQL/PostgreSQL/SQLite
+- **JavaScript**: Vanilla JS for interactivity
+- **Deployment**: Compatible with any PHP 8.1+ server
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## Installation
 
-## Contributing
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/LinkTinker.git
+   cd LinkTinker
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install PHP dependencies**
+   ```bash
+   composer install
+   ```
 
-## Code of Conduct
+3. **Install NPM dependencies**
+   ```bash
+   npm install
+   npm run build
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Create and configure .env file**
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
 
-## Security Vulnerabilities
+5. **Configure your database**
+   Update the `.env` file with your database credentials:
+   ```
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=linktinker
+   DB_USERNAME=your_username
+   DB_PASSWORD=your_password
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Run migrations**
+   ```bash
+   php artisan migrate
+   ```
 
-## License
+7. **Start the development server**
+   ```bash
+   php artisan serve
+   ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+8. **Access the application**
+   Open your browser and visit: `http://localhost:8000`
+
+## Environment Variables
+
+Create a `.env` file in the root directory and configure the following variables:
+
+```
+APP_NAME=LinkTinker
+APP_ENV=local
+APP_KEY=your_application_key
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=linktinker
+DB_USERNAME=root
+DB_PASSWORD=
+
+# Optional: Set to true to force HTTPS URLs
+FORCE_HTTPS=false
+
+# Optional: Set your application timezone
+timezone=UTC
+
+# Optional: Configure mail settings if you want to enable email notifications
+MAIL_MAILER=smtp
+MAIL_HOST=mailhog
+MAIL_PORT=1025
+MAIL_USERNAME=null
+MAIL_PASSWORD=null
+MAIL_ENCRYPTION=null
+MAIL_FROM_ADDRESS="hello@example.com"
+MAIL_FROM_NAME="${APP_NAME}"
+```
+
+## Usage
+
+1. **Creating a Short Link**
+   - Visit the homepage
+   - Enter your long URL
+   - (Optional) Set a custom slug
+   - (Optional) Set an expiration date
+   - (Optional) Set a maximum number of clicks
+   - Click "Shorten Link"
+   - Copy your shortened URL
+
+2. **Accessing a Short Link**
+   - Simply visit the shortened URL
+   - You'll be automatically redirected to the original URL
+
+3. **Link Expiration**
+   - If an expiration date is set, the link will stop working after that date
+   - If a click limit is set, the link will stop working after reaching the maximum number of clicks
+
+## Database Schema
+
+### short_links Table
+
+| Column | Type | Description |
+|--------|------|-------------|
+| id | bigint | Primary key |
+| slug | string | The short URL identifier |
+| url | string | The original URL |
+| clicks | integer | Number of times the link has been clicked |
+| max_clicks | integer | Maximum allowed clicks (null for unlimited) |
+| expires_at | timestamp | Expiration date (null for never) |
+| deleted_at | timestamp | For soft deletes |
+| created_at | timestamp | When the link was created |
+| updated_at | timestamp | When the link was last updated |
+
+---
+
+Built from `bytes` by [Kush](https://github.com/Kush-4826)
