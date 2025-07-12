@@ -21,7 +21,8 @@ class ShortLinkController extends Controller
      */
     public function create()
     {
-        return view('welcome');
+        $shortLinksCount = ShortLink::count();
+        return view('create', ['shortLinksCount' => $shortLinksCount]);
     }
 
     /**
@@ -37,30 +38,6 @@ class ShortLinkController extends Controller
      */
     public function show(ShortLink $shortLink)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(ShortLink $shortLink)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(UpdateShortLinkRequest $request, ShortLink $shortLink)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(ShortLink $shortLink)
-    {
-        //
+        dd($shortLink);
     }
 }
